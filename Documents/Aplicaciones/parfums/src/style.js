@@ -8,11 +8,22 @@ export const styles = StyleSheet.create({
         backgroundColor: COLORS.background,
         marginTop: StatusBar.currentHeight,
 
-       
-       
-     
-      
     },
+    
+    splashFonts: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    activityIndicator: {
+
+        color: COLORS.primary,
+        size: 'large',
+
+        
+
+        
+    }
     
 
 

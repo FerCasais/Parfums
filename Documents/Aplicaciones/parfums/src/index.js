@@ -1,15 +1,32 @@
-import { View, SafeAreaView, Text, Button } from "react-native";
+import { View, SafeAreaView, Text, Button, ActivityIndicator } from "react-native";
 import { styles } from "./style";
 import { Header } from "./components";
 import { useState } from "react";
 import { Categories } from "./screens";
 import Home from "./screens/home";
+import StartPage from "./screens/startPage";
+import { useFonts } from "expo-font";
 
 
 export default function App() {
+
+  const [fontsLoaded] = useFonts({
+    'pepito': require('../assets/fonts/DancingScript-Bold.ttf'),
+  })
+
   const [isSelected, setIsSelected] = useState(false);
 
-  const [fontsLoaded] = useState(fonts);
+
+ 
+if(!fontsLoaded) {
+  return (
+  <View style={styles.splashFonts}>
+
+<ActivityIndicator style={styles.activityIndicator}/>
+
+  </View>
+)}
+
 
   const onSelectCategory = (categoryId) => {
     setIsSelected(!isSelected);
@@ -19,7 +36,7 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.container}>
-        <Header title="La boutique des parfums" />
+      <Header title="La boutique des parfums" />
         {isSelected ? (
           <View>
              <Home />

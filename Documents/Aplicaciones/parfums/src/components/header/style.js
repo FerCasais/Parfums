@@ -7,13 +7,14 @@ export const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: COLORS.primary,
- 
+        fontFamily: 'pepito',
         
       },
       titleText: {
         fontSize: 28,
-        fontWeight: 'bold',
+          
         color: COLORS.white,
+        fontFamily: 'pepito',
         
         
        
