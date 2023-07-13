@@ -11,10 +11,13 @@ import { useFonts } from "expo-font";
 export default function App() {
 
   const [fontsLoaded] = useFonts({
-    'pepito': require('../assets/fonts/DancingScript-Bold.ttf'),
+    'dancing-bold': require('../assets/fonts/DancingScript-Bold.ttf'),
   })
 
   const [isSelected, setIsSelected] = useState(false);
+ 
+
+  const onSelectProducts = () => onSelect
 
 
  

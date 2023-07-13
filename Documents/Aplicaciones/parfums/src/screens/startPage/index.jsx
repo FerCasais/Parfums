@@ -44,7 +44,7 @@ export default function  StartPage ()  {
           backgroundColor: COLORS.primary,
         }}>
            
-        <Text style={{fontSize: 24, textAlign: 'center', margin: 10, fontFamily: 'pepito', }}>
+        <Text style={{fontSize: 24, textAlign: 'center', margin: 10, fontFamily: 'dancing-bold', }}>
           Boutique des Parfums
         </Text>
       </FadeInView>
