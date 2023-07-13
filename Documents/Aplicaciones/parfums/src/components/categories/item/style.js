@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
       fontSize: 25,
       textAlign: 'center',
       fontFamily: 'castaro',
-      backgroundColor: COLORS.otro
+      backgroundColor: COLORS.background2,
     },
    
 });
