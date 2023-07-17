@@ -4,7 +4,7 @@ import { styles } from "./style";
 import DETAILS from "../../contants/data/details.json";
 
 function Products({ route }) {
-  const { categoryId } = route.params;
+  const { categoryId, name } = route.params;
 
   const product = DETAILS.find((product) => product.categoryId === categoryId);
 

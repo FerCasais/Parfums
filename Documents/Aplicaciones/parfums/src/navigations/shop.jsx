@@ -6,14 +6,20 @@ import { COLORS } from "../utils/colors";
 
 const Stack = createNativeStackNavigator()
 
-function ShopNavigator() {
+function ShopNavigator( ) {
+
+
+
     return (
         <Stack.Navigator initialRouteName="StartPage">
-        <Stack.Screen name='StartPage' component={StartPage}
+        <Stack.Screen 
+        name='StartPage' 
+        component={StartPage}
         options={{
             headerTitleAlign: 'center',
            headerShown: false,
         }
+        
 
         }
         />
@@ -37,12 +43,13 @@ function ShopNavigator() {
           }}
           />
         <Stack.Screen name='Products' component={Products}
-        options={{
-            title: 'Products',
+        options={ ({navigation, route} ) => ({ 
+           
             headerTitleAlign: 'center',
            
             headerStyle: {
               backgroundColor: COLORS.primary,
+              
        
             },
             headerTintColor: '#fff',
@@ -50,11 +57,12 @@ function ShopNavigator() {
             
               fontSize: 28,
 
-              color: COLORS.white,
+              color: COLORS.black,
               fontFamily: "dancing-bold",
               
             },
-          }}
+            title: (route.params.name + ' Parfums')
+          })}
         />
         </Stack.Navigator>
 

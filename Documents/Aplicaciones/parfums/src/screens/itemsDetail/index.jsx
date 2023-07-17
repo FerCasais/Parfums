@@ -26,6 +26,7 @@ const ItemDetail = () => {
       <Text style={styles.text}> precio =  {product.price} dolares</Text>
        
     </View>
+    
   )
 }
 

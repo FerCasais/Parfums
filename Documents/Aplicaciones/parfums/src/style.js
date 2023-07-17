@@ -23,4 +23,8 @@ export const styles = StyleSheet.create({
     marginTop: 30,
     color: COLORS.white,
   },
+  tabNavigator: {
+  flex: 1,
+  backgroundColor: 'red',
+},
 });
