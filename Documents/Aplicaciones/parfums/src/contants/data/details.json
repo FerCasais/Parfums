@@ -1,0 +1,159 @@
+[
+    {
+        "id": 1,
+        "categoryId": 1,
+        "name": "Miss Dior",
+        "description": "Parfum",
+        "price": 100,
+        "image": "https://www.dior.com/couture/var/dior/storage/images/horizon/fragrance/womens-fragrance/decouvrir-miss-dior-eau-de-parfum/01-discover-the-new-miss-dior-eau-de-parfum-institutional-cover/25592652-8-esl-ES/01-discover-the-new-miss-dior-eau-de-parfum-institutional-cover2_1440_1200.jpg",
+        "image2": "https://perfumeonline.ca/cdn/shop/products/dior.jpg?v=1681934310",
+      
+        "currency": {
+            "symbol": "$",
+            "code": "USD",
+            "name": "US Dollar"
+        },
+        "quantity": 1,
+        "tags": [
+            "dior",
+            "miss"
+            
+        ],
+        "features": [
+            "6.8-inch Dynamic AMOLED 2X display",
+            "Snapdragon 888 chipset",
+            "12GB RAM",
+            "256GB storage",
+            "108MP+10MP+10MP+12MP quad rear cameras",
+            "40MP front camera",
+            "5000mAh battery"
+        ],
+        "rating": 5,
+        "stock": 10
+    },
+    {
+        "id": 2,
+        "categoryId": 2,
+        "name": "Lancome",
+        "description": "Parfum pour femme",
+        "price": 150,
+        "image": "https://fraguru.com/himg/o.SOWu0kCwANw.jpg",
+        "image2": "https://slimages.macysassets.com/is/image/MCY/products/6/optimized/22043496_fpx.tif?op_sharpen=1&wid=700&hei=855&fit=fit,1",
+      
+        "currency": {
+            "symbol": "$",
+            "code": "USD",
+            "name": "US Dollar"
+        },
+        "quantity": 1,
+        "tags": [
+            "iphone",
+            "14",
+            "pro",
+            "max",
+            "256gb"
+        ],
+        "features": [
+            "6.7-inch Super Retina XDR display",
+            "A15 Bionic chipset",
+            "6GB RAM",
+            "256GB storage",
+            "12MP+12MP+12MP triple rear cameras",
+            "12MP front camera",
+            "5000mAh battery"
+        ],
+        "rating": 4.5,
+        "stock": 6
+    },
+    {
+        "id": 3,
+        "categoryId": 3,
+        "name": "Libre - YSL",
+        "description": "Femme Parfum",
+        "price": 130,
+        "image": "https://epocacosmeticos.vteximg.com.br/arquivos/ids/526476/640x440px_banner_mob_ysl_libre_dez_2022.jpg?v=638068061180270000",
+        "image2": "https://farmalife.vteximg.com.br/arquivos/ids/173113-1200-1200/3614272648425.jpg?v=637481545609400000",
+        "currency": {
+            "symbol": "$",
+            "code": "USD",
+            "name": "US Dollar"
+        },
+        "quantity": 1,
+        "tags": [
+            "macbook",
+            "pro",
+            "2023",
+            "m2",
+            "2tb"
+        ],
+        "features": [
+            "16-inch Retina display",
+            "Apple M2 chipset",
+            "32GB RAM",
+            "2TB storage",
+            "16GB AMD Radeon Pro 6700M graphics"
+        ],
+        "rating": 5,
+        "stock": 1
+    },
+    {
+        "id": 4,
+        "categoryId": 4,
+        "name": "Scandal by Gautier",
+        "description": "Parfum",
+        "price": 120,
+        "image": "https://eaudebeaux.files.wordpress.com/2020/03/e6926-irina-shayk-so-scandal-jean-paul-gaultier.jpg",
+        "image2": "https://perfugroupar.vtexassets.com/arquivos/ids/185031/8435415050777_1.png?v=638120852560870000",
+        "currency": {
+            "symbol": "$",
+            "code": "USD",
+            "name": "US Dollar"
+        },
+        "quantity": 1,
+        "tags": [
+            "tribute",
+            "lounge",
+            "chair"
+        ],
+        "features": [
+            "Material: Leather",
+            "Color: Brown",
+            "Dimensions: 30 x 30 x 30 inches"
+        ],
+        "rating": 4.5,
+        "stock": 5
+    },
+    {
+        "id": 5,
+        "categoryId": 4,
+        "name": "Samsung Galaxy Tab S8 Ultra",
+        "description": "Samsung Galaxy Tab S8 Ultra 512GB",
+        "price": 1350,
+        "image": "https://firebasestorage.googleapis.com/v0/b/ecommerce-app-c91d9.appspot.com/o/products%2Fsamsung-galaxy-tab-s8-ultra.png?alt=media&token=491df109-7db9-40cb-9599-3252e99ed081",
+        "currency": {
+            "symbol": "$",
+            "code": "USD",
+            "name": "US Dollar"
+        },
+        "quantity": 1,
+        "tags": [
+            "samsung",
+            "galaxy",
+            "tab",
+            "s8",
+            "ultra",
+            "512gb"
+        ],
+        "features": [
+            "14.6-inch Super AMOLED display",
+            "Snapdragon 888 chipset",
+            "12GB RAM",
+            "512GB storage",
+            "12MP+12MP dual rear cameras",
+            "8MP front camera",
+            "10000mAh battery"
+        ],
+        "rating": 4,
+        "stock": 20
+    }
+]

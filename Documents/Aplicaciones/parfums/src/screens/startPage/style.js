@@ -9,7 +9,15 @@ export const styles = StyleSheet.create({
     botonIngresar: {
         padding: 20,
         marginTop: 30,
-        color: COLORS.white,
-    }
-   
+        color: COLORS.secodary,
+        fontFamily: 'dancing-script',
+        fontSize: 30,
+    },
+    text: {
+      fontFamily: 'dancing-script',
+      fontSize: 36,
+      color: COLORS.primary,
+
+    },
+  
   });

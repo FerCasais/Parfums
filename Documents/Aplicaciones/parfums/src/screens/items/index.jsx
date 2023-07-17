@@ -1,21 +1,17 @@
-import {
-  Text,
-  View,
-  StatusBar,
-  SafeAreaView,
-  FlatList,
-  ImageBackground,
-  TouchableHighlight,
-  Button,
-} from "react-native";
+import { View, SafeAreaView, FlatList } from "react-native";
 import { styles } from "./style";
-
 import CATEGORIES from "../../contants/data/categories.json";
+import { CategoryItems } from "../../components";
 
-import { CategoryItems, Header } from "../../components";
-import { useState } from "react";
+function Categories({ navigation }) {
+  const onSelectCategory = ({ categoryId, name, color }) => {
+    navigation.navigate("Products", {
+      categoryId: categoryId,
+      name: name,
+      color: color,
+    });
+  };
 
-function Categories({ onSelectCategory }) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.container}>
@@ -24,7 +20,16 @@ function Categories({ onSelectCategory }) {
           style={styles.categoryContainer}
           contentContainerStyle={styles.listCategory}
           renderItem={({ item }) => (
-            <CategoryItems {...item} onSelectCategory={onSelectCategory} />
+            <CategoryItems
+              {...item}
+              onSelectCategory={() =>
+                onSelectCategory({
+                  categoryId: item.id,
+                  color: item.backgroundColor,
+                  name: item.name,
+                })
+              }
+            />
           )}
           keyExtractor={(item) => item.id}
           showsVerticalScrollIndicator={false}
