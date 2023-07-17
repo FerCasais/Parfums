@@ -48,24 +48,29 @@ function ShopNavigator( ) {
           />
         <Stack.Screen name='Products' component={Products}
         options={ ({navigation, route} ) => ({ 
+
            
             headerTitleAlign: 'center',
-           
+          
             headerStyle: {
-              backgroundColor: COLORS.primary,
-              
+              backgroundColor: COLORS.background2,
+           
+          
        
             },
             headerTintColor: '#fff',
             headerTitleStyle: {
             
               fontSize: 28,
+             
 
-              color: COLORS.background2,
-              fontFamily: "dancing-bold",
+              color: COLORS.secodary,
+
+              fontFamily: "castaro",
               
             },
-            title: (route.params.name + ' Parfums')
+            title: (route.params.name),
+     
           })}
         />
         </Stack.Navigator>
