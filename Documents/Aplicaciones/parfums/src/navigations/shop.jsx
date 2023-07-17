@@ -4,6 +4,7 @@ import StartPage from "../screens/startPage";
 import Products from "../screens/products";
 import { COLORS } from "../utils/colors";
 
+
 const Stack = createNativeStackNavigator()
 
 function ShopNavigator( ) {
@@ -16,8 +17,8 @@ function ShopNavigator( ) {
         name='StartPage' 
         component={StartPage}
         options={{
-            headerTitleAlign: 'center',
-           headerShown: false,
+          headerTitleAlign: 'center',
+          headerShown: false,
         }
         
 
@@ -25,11 +26,14 @@ function ShopNavigator( ) {
         />
         <Stack.Screen name='Brands' component={Categories}
            options={{
-            title: 'Brands',
-            headerTitleAlign: 'center',
+            title: 'Boutique de Parfums',
+            headerTitleAlign: 'left',
+           
+
+
             headerStyle: {
-              backgroundColor: COLORS.primary,
-       
+            backgroundColor: COLORS.primary,
+            
             },
             headerTintColor: '#fff',
             headerTitleStyle: {
@@ -57,7 +61,7 @@ function ShopNavigator( ) {
             
               fontSize: 28,
 
-              color: COLORS.black,
+              color: COLORS.background2,
               fontFamily: "dancing-bold",
               
             },
