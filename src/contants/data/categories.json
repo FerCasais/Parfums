@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "Dior",
+        "backgroundColor": "#6D6AA0",
+        "backgroundImage": "https://www.dior.com/couture/var/dior/storage/images/horizon/fragrance/womens-fragrance/decouvrir-miss-dior-eau-de-parfum/01-discover-the-new-miss-dior-eau-de-parfum-institutional-cover/25592652-8-esl-ES/01-discover-the-new-miss-dior-eau-de-parfum-institutional-cover2_1440_1200.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Lancome",
+        "backgroundColor": "#3EC2CC",
+        "backgroundImage": "https://static1.sabinacdn.com/30169-thickbox_default/idole-lancome-eau-de-parfum.jpg"
+    },
+    {
+        "id": 3,
+        "name": "YSL",
+        "backgroundColor": "#0DAB6C",
+        "backgroundImage": "https://i.pinimg.com/originals/bd/7b/e9/bd7be94e824d86b007204e5665d620c1.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Jean Paul Gaultier",
+        "backgroundColor": "#EC5B67",
+        "backgroundImage": "https://www.theperfumeshop.com/medias/sys_master/back-zoom/back-zoom/11851544231966/Eau-de-Parfum-Spray-1247848.jpg"
+    }
+]
