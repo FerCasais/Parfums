@@ -10,6 +10,7 @@ import DETAILS from "../../contants/data/details.json";
 import { Card, Button, Title, Paragraph } from "react-native-paper";
 import { useSelector, useDispatch } from "react-redux";
 import { addToCart, deleteSelection } from "../../store/cart/cartSlice";
+import { useGetProductByIdQuery } from "../../store/products/apis";
 
 
 function ItemDetail({ navigation, route }) {
@@ -18,6 +19,8 @@ function ItemDetail({ navigation, route }) {
 
   const productsRedux = useSelector((state) => state.products.data )
   const { productId } = route.params;
+
+  const { data, isLoading, error } = useGetProductByIdQuery(productId);
 
   const product = productsRedux.find((product) => product.id === productId);
 

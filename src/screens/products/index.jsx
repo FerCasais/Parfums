@@ -8,7 +8,6 @@ import {
   StatusBar,
   SafeAreaView,
   TouchableHighlight,
-
 } from "react-native";
 import { styles } from "./style";
 import DETAILS from "../../contants/data/details.json";
@@ -16,77 +15,69 @@ import { Card, Button, Title, Paragraph } from "react-native-paper";
 
 import CATEGORIES from "../../contants/data/categories.json";
 import { useSelector } from "react-redux";
-
+import { useGetProductsByCategoryQuery } from "../../store/products/apis";
 
 function Products({ navigation, route }) {
+  const productsRedux = useSelector((state) => state.products.data);
 
-  const productsRedux = useSelector((state) => state.products.data)
+  const categoriesRedux = useSelector((state) => state.categories.data);
 
-  const categoriesRedux = useSelector((state) => state.categories.data)
-  
   const { categoryId, backgroundImage } = route.params;
 
-  const products = productsRedux.filter((product) => product.categoryId === categoryId);
+  const { data, error, isLoading } = useGetProductsByCategoryQuery(categoryId);
 
-  const details =categoriesRedux.find((photo) => photo.categoryId === categoryId)
+  const products = data?.filter((product) => product.categoryId === categoryId);
 
-
-
- 
+  const details = categoriesRedux.find(
+    (photo) => photo.categoryId === categoryId
+  );
 
   const onSelectItem = ({ productId, name }) => {
-    navigation.navigate('ItemDetail', { productId, name });
+    navigation.navigate("ItemDetail", { productId, name });
   };
-
 
   return (
     <>
       <SafeAreaView style={styles.container}>
         <View style={styles.containerImage}>
-        <Image
-        source={{ uri: backgroundImage }}
-        style={styles.image}
-        resizeMode="cover"
-      />
+          <Image
+            source={{ uri: backgroundImage }}
+            style={styles.image}
+            resizeMode="cover"
+          />
         </View>
         <FlatList
           data={products}
           renderItem={({ item }) => (
-            
-            
-                <View style={styles.touchable} >
-                  <TouchableHighlight onPress={(id)=>onSelectItem({ productId: item.id, name: item.name })}>
-                    <View>
-                <Card.Content style={styles.cardView}>
-                  <Title>
-                    <Text style={styles.name}>{item.name}</Text>
-                  </Title>
-                </Card.Content>
+            <View style={styles.touchable}>
+              <TouchableHighlight
+                onPress={(id) =>
+                  onSelectItem({ productId: item.id, name: item.name })
+                }
+              >
+                <View>
+                  <Card.Content style={styles.cardView}>
+                    <Title>
+                      <Text style={styles.name}>{item.name}</Text>
+                    </Title>
+                  </Card.Content>
 
-             
+                  <Card.Cover
+                    source={{ uri: item.image2 }}
+                    style={styles.image2}
+                    resizeMode="contain"
+                  />
 
-                <Card.Cover 
-                  source={{ uri: item.image2 }}
-                  style={styles.image2}
-                  resizeMode="contain"
-                />
-             
-            
-                <Card.Content>
-                  <Paragraph>Eau de Parfum 50ml</Paragraph>
-                  <Text style={styles.price}>USD {item.price}</Text>
-                </Card.Content>
-
-
+                  <Card.Content>
+                    <Paragraph>Eau de Parfum 50ml</Paragraph>
+                    <Text style={styles.price}>USD {item.price}</Text>
+                  </Card.Content>
                 </View>
-                </TouchableHighlight>
-             
-             
+              </TouchableHighlight>
             </View>
           )}
           keyExtractor={(item) => item.id}
           showsVerticalScrollIndicator={false}
-          
         />
       </SafeAreaView>
     </>

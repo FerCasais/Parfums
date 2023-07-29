@@ -1,23 +1,24 @@
-import { Ionicons } from '@expo/vector-icons';
-import { View, Text, TouchableOpacity, Image } from 'react-native';
-import { styles } from './style';
-import { COLORS } from '../../../utils/colors';
-import { useDispatch } from "react-redux";
-import { deleteSelection } from "../../../store/cart/cartSlice";
+import { Ionicons } from "@expo/vector-icons";
+import { View, Text, TouchableOpacity, Image } from "react-native";
+import { styles } from "./style";
+import { COLORS } from "../../../utils/colors";
 
 
+const CartItem = ({
+  id,
+  categoryId,
+  name,
+  price,
+  image2,
+  currency,
+  quantity,
+  stock,
+ onAdd,
+ onDecrease,
+ onDeleteSelection,
+  ...props
+}) => {
 
-
-const CartItem = ({ id, categoryId, name, price, image2, currency, quantity, stock, ...props }) => {
-
-const dispatch = useDispatch()
-
-  const onDeleteSelection = (id) => {
-   dispatch(deleteSelection(id))
-   };
-
-
- 
 
   return (
     <View style={styles.container}>
@@ -27,18 +28,30 @@ const dispatch = useDispatch()
       <View style={styles.detailContainer}>
         <Text style={styles.name}>{name}</Text>
         <Text style={styles.price}>{`${currency.code} ${price}`}</Text>
-        <Text style={styles.qty}>{`qty: ${quantity} stock: ${stock}`}</Text>
+        <Text
+          style={styles.qty}
+        >{`qty: ${quantity} stock: ${stock}`}</Text>
         <View style={styles.actionContainer}>
-          <TouchableOpacity style={styles.increaseButton} onPress={() => {}}>
+          <TouchableOpacity
+            style={styles.increaseButton}
+            onPress={() => onAdd(id)}
+          >
             <Text style={styles.increaseButtonText}>+</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.decreaseButton} onPress={() => {}}>
+          <TouchableOpacity
+            style={styles.decreaseButton}
+            onPress={() => onDecrease(id)}
+          >
             <Text style={styles.decreaseButtonText}>-</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() =>  onDeleteSelection(id)} style={styles.deleteButton}>
+          <TouchableOpacity
+            onPress={() => onDeleteSelection(id)}
+            style={styles.deleteButton}
+          >
             <Ionicons name="trash" size={14} color={COLORS.white} />
           </TouchableOpacity>
         </View>
+       
       </View>
     </View>
   );

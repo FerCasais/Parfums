@@ -1,10 +1,18 @@
-import { View, SafeAreaView, FlatList } from "react-native";
+import { View, SafeAreaView, FlatList, ActivityIndicator } from "react-native";
 import { styles } from "./style";
 import CATEGORIES from "../../contants/data/categories.json";
 import { CategoryItems } from "../../components";
 import { useSelector } from "react-redux";
+import { useGetCategoriesQuery } from "../../store/categories/apis";
+import { COLORS } from "../../utils/colors";
+
 
 function Categories({ navigation }) {
+
+
+  const { data, error, isLoading } = useGetCategoriesQuery();
+
+ 
 
 const categoriesRedux = useSelector((state) => state.categories.data)
 
@@ -16,15 +24,25 @@ const categoriesRedux = useSelector((state) => state.categories.data)
       image2: image2,
       price: price,
       backgroundImage: backgroundImage,
+    
      
     });
   };
 
+  if (isLoading)
+  return (
+    <View style={styles.containerLoader}>
+      <ActivityIndicator size="large" color={COLORS.primary} />
+    </View>
+  );
+
+ 
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.container}>
-        <FlatList
-          data={categoriesRedux}
+        { <FlatList
+          data={data}
           style={styles.categoryContainer}
           contentContainerStyle={styles.listCategory}
           renderItem={({ item }) => (
@@ -45,7 +63,7 @@ const categoriesRedux = useSelector((state) => state.categories.data)
           )}
           keyExtractor={(item) => item.id}
           showsVerticalScrollIndicator={false}
-        />
+        /> }
       </View>
     </SafeAreaView>
   );

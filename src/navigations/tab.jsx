@@ -5,11 +5,19 @@ import ShopNavigator from "./shop";
 import { Ionicons } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { COLORS } from "../utils/colors";
+import { useSelector } from "react-redux";
+
+
 
 
 const Tab = createBottomTabNavigator();
 
 const TabsNavigator = () => {
+
+  const cartItems = useSelector((state) => state.cart.items);
+
+
+
   return (
     <Tab.Navigator
       initialRouteName="ShopTab"
@@ -46,8 +54,9 @@ const TabsNavigator = () => {
           },
         }}
       />
-      <Tab.Screen name="Orders List" component={OrdersNavigator}
+      <Tab.Screen  name="OrdersTab" component={OrdersNavigator}
        options={{
+        tabBarLabel: 'Orders',
         tabBarIcon: ({ focused, color }) => {
           return (
             <Ionicons name={focused? "ios-list-circle" : "ios-list-circle-outline"} size={28} color={color} />
@@ -66,7 +75,13 @@ const TabsNavigator = () => {
             <MaterialCommunityIcons name={focused ? "cart-heart" : "cart-outline"} size={24} color={color} />
           );
         },
-        tabBarBadge: 4,
+        tabBarBadge: cartItems.length,
+        tabBarBadgeStyle: {
+          backgroundColor: COLORS.primary,
+          color: COLORS.white,
+         
+          fontSize: 11,
+        },
       }}/>
     </Tab.Navigator>
   );
