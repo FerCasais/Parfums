@@ -10,10 +10,10 @@ import {
   TouchableHighlight,
 } from "react-native";
 import { styles } from "./style";
-import DETAILS from "../../contants/data/details.json";
-import { Card, Button, Title, Paragraph } from "react-native-paper";
 
-import CATEGORIES from "../../contants/data/categories.json";
+import { Card, Title, Paragraph } from "react-native-paper";
+
+
 import { useSelector } from "react-redux";
 import { useGetProductsByCategoryQuery } from "../../store/products/apis";
 

@@ -6,6 +6,8 @@ import { Ionicons } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { COLORS } from "../utils/colors";
 import { useSelector } from "react-redux";
+import ProfileNavigator from "./profile";
+
 
 
 
@@ -83,6 +85,22 @@ const TabsNavigator = () => {
           fontSize: 11,
         },
       }}/>
+       <Tab.Screen  name="Profile" component={ProfileNavigator}
+       options={{
+        tabBarLabel: 'Profile',
+        
+        tabBarIcon: ({ focused, color }) => {
+          return (
+            <Ionicons name={focused? "person-add-sharp" : "person-add-outline"} size={28} color={color} />
+          );
+        },
+      
+        tabBarBadgeStyle: {
+            color: COLORS.white,
+            backgroundColor: COLORS.primary,
+        }
+      }} />
+       
     </Tab.Navigator>
   );
 };

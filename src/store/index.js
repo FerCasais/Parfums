@@ -9,14 +9,21 @@ import { ordersApi } from "./orders/apis";
 
 
 
+
+
+
+
+
 export const store = configureStore({
   reducer: {
     products: productsReducer,
     categories: categoriesReducer,
     cart: cartReducer,
+
     [categoriesApi.reducerPath]: categoriesApi.reducer,
     [productsApi.reducerPath]: productsApi.reducer,
     [ordersApi.reducerPath]: ordersApi.reducer,
+   
  
   },
   middleware: (getDefaultMiddleware) =>
@@ -24,6 +31,7 @@ export const store = configureStore({
       categoriesApi.middleware,
       productsApi.middleware,
       ordersApi.middleware,
+    
      
       
     ),

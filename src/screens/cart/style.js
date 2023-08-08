@@ -29,12 +29,16 @@ export const styles = StyleSheet.create({
     width: "80%",
     marginLeft: "10%",
     marginRight: "10%",
-    marginBottom: 10,
+    marginBottom: 20,
+
     borderRadius: 30,
+    marginTop: 20,
   },
   orderButtonText: {
     color: COLORS.black,
     fontFamily: "castaro",
+  
+ 
   },
   emptyCartContainer: {
     flex: 1,
@@ -49,5 +53,11 @@ export const styles = StyleSheet.create({
     padding: 20,
     borderRadius: 5,
 
+  },
+  orderTouch: {
+   
   }
+ 
+
+
 });

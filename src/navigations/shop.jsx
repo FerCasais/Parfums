@@ -1,9 +1,13 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Cart, Categories } from "../screens";
+import {  Categories } from "../screens";
 import StartPage from "../screens/startPage";
 import Products from "../screens/products";
 import { COLORS } from "../utils/colors";
 import ItemDetail from "../screens/itemsDetail";
+import Profile from "../screens/profile";
+import Cart from "../screens/cart";
+import Register from "../screens/register";
+
 
 const Stack = createNativeStackNavigator();
 
@@ -69,6 +73,42 @@ function ShopNavigator() {
           title: route.params.name,
         })}
       />
+      
+       <Stack.Screen
+        name="Register"
+        component={Register}
+        options={({ navigation, route }) => ({
+          headerTitleAlign: "center",
+          headerStyle: {
+            backgroundColor: COLORS.background2,
+          },
+          headerTintColor: "#fff",
+          headerTitleStyle: {
+            fontSize: 28,
+            color: COLORS.secodary,
+            fontFamily: "castaro",
+          },
+    
+        })}
+      />
+           <Stack.Screen
+        name="Cart"
+        component={Cart}
+        options={({ navigation, route }) => ({
+          headerTitleAlign: "center",
+          headerStyle: {
+            backgroundColor: COLORS.background2,
+          },
+          headerTintColor: "#fff",
+          headerTitleStyle: {
+            fontSize: 28,
+            color: COLORS.secodary,
+            fontFamily: "castaro",
+          },
+    
+        })}
+      />
+       
      
     </Stack.Navigator>
   );
