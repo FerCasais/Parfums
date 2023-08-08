@@ -85,6 +85,7 @@ const AddUserScreen = (props) => {
         />
       </View>
 
+   
       <View style={styles.button}>
         <TouchableHighlight onPress={() => saveNewUser()} style={styles.button}>
           <Text style={styles.text}>Save User</Text>
@@ -103,6 +104,9 @@ const AddUserScreen = (props) => {
         
       </View>
     </View>
+
+
+ 
 
    <View style={styles.buttonAvatar}>
 

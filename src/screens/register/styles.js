@@ -5,6 +5,7 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 35,
+    backgroundColor: COLORS.background2
   },
   inputGroup: {
     flex: 1,
@@ -57,6 +58,7 @@ export const styles = StyleSheet.create({
   avatarContainer: {
     flexDirection: 'row',
     gap: 20,
+    
 
   },
     loading: {
@@ -67,6 +69,7 @@ export const styles = StyleSheet.create({
   header: {
     justifyContent: 'center',
     alignItems: 'center',
-    paddingVertical: 130,
+    paddingVertical: 100,
+  
   },
 });
