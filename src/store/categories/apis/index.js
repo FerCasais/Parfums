@@ -1,15 +1,15 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-import { URL_BASE_FIREBASE_REALTIME_DATABASE } from '../../../contants/firebase';
+import { URL_BASE_FIREBASE_REALTIME_DATABASE } from "../../../contants/firebase";
 
 export const categoriesApi = createApi({
-    reducerPath: 'categoriesApi',
-    baseQuery: fetchBaseQuery({ baseUrl: URL_BASE_FIREBASE_REALTIME_DATABASE }),
-    endpoints: (builder) => ({
-      getCategories: builder.query({
-        query: () => `/categories.json`,
-      }),
+  reducerPath: "categoriesApi",
+  baseQuery: fetchBaseQuery({ baseUrl: URL_BASE_FIREBASE_REALTIME_DATABASE }),
+  endpoints: (builder) => ({
+    getCategories: builder.query({
+      query: () => `/categories.json`,
     }),
-  });
-  
-  export const { useGetCategoriesQuery } = categoriesApi;
+  }),
+});
+
+export const { useGetCategoriesQuery } = categoriesApi;

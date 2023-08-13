@@ -8,17 +8,11 @@ import { COLORS } from "../utils/colors";
 import { useSelector } from "react-redux";
 import ProfileNavigator from "./profile1";
 
-
-
-
-
 const Tab = createBottomTabNavigator();
 
 const TabsNavigator = () => {
 
   const cartItems = useSelector((state) => state.cart.items);
-
-
 
   return (
     <Tab.Navigator
@@ -81,21 +75,18 @@ const TabsNavigator = () => {
         tabBarBadgeStyle: {
           backgroundColor: COLORS.primary,
           color: COLORS.white,
-         
           fontSize: 11,
         },
       }}/>
        <Tab.Screen  name="Profile" component={ProfileNavigator}
        options={{
         tabBarLabel: 'Profile',
-        
         tabBarIcon: ({ focused, color }) => {
           return (
             <Ionicons name={focused? "person-add-sharp" : "person-add-outline"} size={28} color={color} />
           );
         },
-      
-        tabBarBadgeStyle: {
+       tabBarBadgeStyle: {
             color: COLORS.white,
             backgroundColor: COLORS.primary,
         }

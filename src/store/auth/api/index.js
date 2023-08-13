@@ -1,38 +1,29 @@
-
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
-import { createSelector } from '@reduxjs/toolkit';
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 import {
   FIREBASE_AUTH_BASE_URL,
-  URL_BASE_FIREBASE_REALTIME_DATABASE ,
   FIREBASE_AUTH_SIGN_IN_API_URL,
   FIREBAS_AUTH_SIGN_UP_API_URL,
-} from '../../../contants/firebase/index';
-
-
-
-
-
+} from "../../../contants/firebase/index";
 
 export const authApi = createApi({
-  reducerPath: 'authApi',
+  reducerPath: "authApi",
   baseQuery: fetchBaseQuery({ baseUrl: FIREBASE_AUTH_BASE_URL }),
-  tagTypes: ['Auth'],
+  tagTypes: ["Auth"],
   endpoints: (builder) => ({
     signIn: builder.mutation({
       query: (credentials) => ({
         url: FIREBASE_AUTH_SIGN_IN_API_URL,
-        method: 'POST',
+        method: "POST",
         body: credentials,
       }),
     }),
     signUp: builder.mutation({
       query: (credentials) => ({
         url: FIREBAS_AUTH_SIGN_UP_API_URL,
-        method: 'POST',
+        method: "POST",
         body: credentials,
       }),
     }),
- 
   }),
 });
 

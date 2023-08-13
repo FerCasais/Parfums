@@ -1,6 +1,4 @@
 import { styles } from './styles';
-
-
 import React, { useState } from "react";
 import {
   Button,
@@ -9,8 +7,6 @@ import {
   TextInput,
   ScrollView,
 } from "react-native";
-
-
 
 const AddUserScreen = (props) => {
   const initalState = {

@@ -39,9 +39,6 @@ export const styles = StyleSheet.create({
   content: {
     justifyContent: "center",
     alignItems: "center",
-
-
-  
   },
   name: {
     fontSize: 18,
@@ -56,11 +53,10 @@ export const styles = StyleSheet.create({
     paddingBottom: 10,
   },
   cardView: {
-    width:280,
- 
+    width: 280,
   },
   touchable: {
     marginBottom: 10,
     paddingBottom: 120,
-  }
+  },
 });

@@ -1,19 +1,19 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 
-import { URL_BASE_FIREBASE_REALTIME_DATABASE } from '../../contants/firebase';
+import { URL_BASE_FIREBASE_REALTIME_DATABASE } from "../../contants/firebase";
 
 export const ordersApi = createApi({
-  reducerPath: 'ordersApi',
+  reducerPath: "ordersApi",
   baseQuery: fetchBaseQuery({ baseUrl: URL_BASE_FIREBASE_REALTIME_DATABASE }),
-  tagTypes: ['Orders'],
+  tagTypes: ["Orders"],
   endpoints: (builder) => ({
     createOrder: builder.mutation({
       query: (order) => ({
         url: `/orders.json`,
-        method: 'POST',
+        method: "POST",
         body: order,
       }),
-      invalidatesTags: ['Orders'],
+      invalidatesTags: ["Orders"],
     }),
     getOrders: builder.query({
       query: () => `/orders.json`,
@@ -24,7 +24,7 @@ export const ordersApi = createApi({
           ...response[key],
         }));
       },
-      providesTags: ['Orders'],
+      providesTags: ["Orders"],
     }),
   }),
 });

@@ -1,18 +1,13 @@
 import { View, SafeAreaView, FlatList, ActivityIndicator } from "react-native";
 import { styles } from "./style";
-import CATEGORIES from "../../contants/data/categories.json";
 import { CategoryItems } from "../../components";
 import { useSelector } from "react-redux";
 import { useGetCategoriesQuery } from "../../store/categories/apis";
 import { COLORS } from "../../utils/colors";
 
-
 function Categories({ navigation }) {
 
-
   const { data, error, isLoading } = useGetCategoriesQuery();
-
- 
 
 const categoriesRedux = useSelector((state) => state.categories.data)
 
@@ -25,7 +20,6 @@ const categoriesRedux = useSelector((state) => state.categories.data)
       price: price,
       backgroundImage: backgroundImage,
     
-     
     });
   };
 
@@ -35,8 +29,6 @@ const categoriesRedux = useSelector((state) => state.categories.data)
       <ActivityIndicator size="large" color={COLORS.primary} />
     </View>
   );
-
- 
 
   return (
     <SafeAreaView style={styles.container}>
@@ -56,8 +48,7 @@ const categoriesRedux = useSelector((state) => state.categories.data)
                   image2: item.image2,
                   price: item.price,
                   backgroundImage: item.backgroundImage,
-                 
-                })
+                 })
               }
             />
           )}

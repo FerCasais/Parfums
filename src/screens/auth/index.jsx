@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { View, Text, TextInput, Button } from "react-native";
+import { View, Text, TextInput } from "react-native";
 import { TouchableOpacity, TouchableHighlight } from "react-native";
 import { useDispatch } from "react-redux";
 
@@ -10,21 +10,9 @@ import { useSignInMutation, useSignUpMutation } from "../../store/auth/api";
 import { setUser } from "../../store/auth/auth.slice";
 
 import * as ImagePicker from "expo-image-picker";
-
-import {
-  useGetProfileQuery,
-  useUpdateImageProfileMutation,
-} from "../../store/settings/api";
-
-import { Image, Platform } from "react-native";
-
-import { AvatarPicker } from "../../components";
-import { useSelector } from "react-redux";
-
+import { Image} from "react-native";
 import { db } from "../../confij";
-import { ref, push, onValue } from "firebase/database";
-
-import firebase from "firebase/compat";
+import { ref, push } from "firebase/database";
 
 const Auth = ({navigation}) => {
   const dispatch = useDispatch();
@@ -39,18 +27,6 @@ const Auth = ({navigation}) => {
   const [name1, setName1] = useState("");
   const [email1, setEmail1] = useState("");
 
-  const dataAddOn = () => {
-    push(ref(db, "user/"), {
-      name1: name,
-      email1: email,
-      image: image,
-    });
-    setName1("");
-    setEmail1("");
-    setImage("");
-  
-  };
-
   const [signIn, { data }] = useSignInMutation();
 
   const [signUp] = useSignUpMutation();
@@ -62,6 +38,14 @@ const Auth = ({navigation}) => {
       } else {
         await signUp({ email, password });
         console.warn(email, password);
+        push(ref(db, "user/"), {
+          name1: name,
+          email1: email,
+          image: image,
+        });
+        setName1("");
+        setEmail1("");
+        setImage("");
       }
     } catch (error) {
       console.error(error);
@@ -138,7 +122,6 @@ const Auth = ({navigation}) => {
               <Text style={styles.linkText}>{messageText}</Text>
             </TouchableOpacity>
           </View>
-
           <View style={styles.buttonContainer}>
             <View style={styles.buttonAvatar}>
               <View style={styles.avatarContainer}>
@@ -162,7 +145,6 @@ const Auth = ({navigation}) => {
               </TouchableHighlight>
             </View>
           </View>
-
           <View style={styles.buttonContainer}>
             <TouchableOpacity style={styles.button} onPress={onHandlerAuth}>
               <Text style={styles.buttonText}>{buttonTitle}</Text>
@@ -179,10 +161,6 @@ const Auth = ({navigation}) => {
             />
           )}
         </View>
-      </View>
-
-      <View style={styles.buttonContainer}>
-        <Button title="Add Data" onPress={dataAddOn} />
       </View>
     </>
   );

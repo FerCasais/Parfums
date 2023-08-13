@@ -4,7 +4,6 @@ import StartPage from "../screens/startPage";
 import Products from "../screens/products";
 import { COLORS } from "../utils/colors";
 import ItemDetail from "../screens/itemsDetail";
-
 import Cart from "../screens/cart";
 import Messages from "../screens/messages";
 

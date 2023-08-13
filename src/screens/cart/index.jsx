@@ -1,12 +1,9 @@
-import { View, Text, FlatList, TouchableHighlight, TouchableOpacity } from 'react-native';
+import { View, Text, FlatList, TouchableOpacity } from 'react-native';
 import { styles } from './style';
 import { CartItem } from '../../components';
 import { useSelector, useDispatch} from 'react-redux';
 import { add, decrease, deleteSelection, clearCart } from '../../store/cart/cartSlice';
 import { useCreateOrderMutation } from '../../store/orders/apis';
-
-
-
 
 const Cart = ({navigation}) => {
 
@@ -25,10 +22,6 @@ const Cart = ({navigation}) => {
   const onDecrease = (id) => {
     dispatch(decrease({id}));
   };
-
-  const makeOrder = () => {
-    alert('Order coming');
-  }
 
   const [createOrder, { data, isError, error, isLoading }] = useCreateOrderMutation();
 
@@ -67,8 +60,6 @@ const Cart = ({navigation}) => {
     }
   };
 
-
-
   if (cart.length === 0) {
     return (
       <View style={styles.emptyCartContainer}>
@@ -77,9 +68,6 @@ const Cart = ({navigation}) => {
     );
   }
 
-
- 
- 
   return (
     <View style={styles.container}>
       <FlatList

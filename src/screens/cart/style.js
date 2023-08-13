@@ -30,7 +30,6 @@ export const styles = StyleSheet.create({
     marginLeft: "10%",
     marginRight: "10%",
     marginBottom: 20,
-
     borderRadius: 30,
     marginTop: 20,
   },
@@ -38,7 +37,6 @@ export const styles = StyleSheet.create({
     color: COLORS.black,
     fontFamily: "castaro",
   
- 
   },
   emptyCartContainer: {
     flex: 1,
@@ -55,9 +53,6 @@ export const styles = StyleSheet.create({
 
   },
   orderTouch: {
-   
   }
  
-
-
 });

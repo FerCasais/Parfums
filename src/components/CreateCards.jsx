@@ -1,5 +1,5 @@
 import React from "react";
-import { Text ,View, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import {Card, Button , Title ,Paragraph } from 'react-native-paper';
 
 const CreateCard = () => {

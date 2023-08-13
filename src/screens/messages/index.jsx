@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import {
   Platform,
@@ -57,13 +56,15 @@ function Items({ done: doneHeading, onPressItem }) {
           key={id}
           onPress={() => onPressItem && onPressItem(id)}
           style={{
-            backgroundColor: done ? "#1c9963" : "#fff",
+            backgroundColor: done ? "pink" : COLORS.primary,
             borderColor: "#000",
             borderWidth: 1,
             padding: 8,
+            
+           
           }}
         >
-          <Text style={{ color: done ? "#fff" : "#000" }}>{value}</Text>
+          <Text style={{ color: done ? "gray" : COLORS.white, fontFamily: 'castaro', fontSize: 12, }}>{value}</Text>
         </TouchableOpacity>
       ))}
     </View>
@@ -169,18 +170,21 @@ function useForceUpdate() {
 
 export const styles = StyleSheet.create({
     container: {
-        backgroundColor: "#fff",
+        backgroundColor: COLORS.background2,
         flex: 1,
         paddingTop: Constants.statusBarHeight,
       },
       heading: {
         fontSize: 20,
-        fontWeight: "bold",
         textAlign: "center",
-        color: COLORS.white,
+        color: COLORS.secodary,
+        fontFamily: 'castaro',
+       
       },
       flexRow: {
         flexDirection: "row",
+      
+        
       },
       input: {
         borderColor: "#4630eb",
@@ -190,21 +194,22 @@ export const styles = StyleSheet.create({
         height: 48,
         margin: 16,
         padding: 8,
+       
       },
       listArea: {
-        backgroundColor: "#f0f0f0",
         flex: 1,
         paddingTop: 16,
         backgroundColor: COLORS.background2,
+        
       },
       sectionContainer: {
         marginBottom: 16,
         marginHorizontal: 16,
-        backgroundColor: COLORS.background2,
+           
       },
       sectionHeading: {
         fontSize: 18,
         marginBottom: 8,
-        backgroundColor: COLORS.background2,
+       
       },
     });

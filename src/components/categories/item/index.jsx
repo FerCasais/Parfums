@@ -2,7 +2,6 @@ import React from "react";
 import { TouchableHighlight, Text, ImageBackground } from "react-native";
 import { styles } from "./style";
 
-
 const CategoryItems = ({
   id,
   name,

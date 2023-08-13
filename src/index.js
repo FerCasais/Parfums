@@ -2,17 +2,15 @@ import { View, SafeAreaView, ActivityIndicator } from "react-native";
 import { styles } from "./style";
 import { useFonts } from "expo-font";
 import RouteNavigation from "./navigations";
-import * as React from 'react';
+import * as React from "react";
 
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import { Provider } from "react-redux";
 import { store } from "./store";
 import { initDatabase } from "./utils/db";
 
-
 export default function App() {
-
   React.useEffect(function () {
     async function init() {
       await initDatabase();
@@ -20,13 +18,11 @@ export default function App() {
     init();
   }, []);
 
-
   const [fontsLoaded] = useFonts({
     "dancing-bold": require("../assets/fonts/DancingScript-Bold.ttf"),
     "dancing-script": require("../assets/fonts/DancingScript-SemiBold.ttf"),
-    "castaro": require("../assets/fonts/CastoroTitling-Regular.ttf"),
+    castaro: require("../assets/fonts/CastoroTitling-Regular.ttf"),
   });
-
 
   if (!fontsLoaded) {
     return (
@@ -36,18 +32,15 @@ export default function App() {
     );
   }
 
-
-  
   const Tab = createBottomTabNavigator();
 
-  
   return (
-  <Provider store={store} >
-    <SafeAreaView style={styles.container}>
-      <View style={styles.container}>
-        <RouteNavigation />     
-      </View>
-    </SafeAreaView>
+    <Provider store={store}>
+      <SafeAreaView style={styles.container}>
+        <View style={styles.container}>
+          <RouteNavigation />
+        </View>
+      </SafeAreaView>
     </Provider>
   );
 }

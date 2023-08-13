@@ -3,7 +3,6 @@ import { View, Text, TouchableOpacity, Image } from "react-native";
 import { styles } from "./style";
 import { COLORS } from "../../../utils/colors";
 
-
 const CartItem = ({
   id,
   categoryId,

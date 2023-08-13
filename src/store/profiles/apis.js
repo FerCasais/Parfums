@@ -1,13 +1,12 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 
-import { URL_BASE_FIREBASE_REALTIME_DATABASE } from '../../contants/firebase';
+import { URL_BASE_FIREBASE_REALTIME_DATABASE } from "../../contants/firebase";
 
 export const profileApi = createApi({
-  reducerPath: 'profileApi',
+  reducerPath: "profileApi",
   baseQuery: fetchBaseQuery({ baseUrl: URL_BASE_FIREBASE_REALTIME_DATABASE }),
-  tagTypes: ['user'],
+  tagTypes: ["user"],
   endpoints: (builder) => ({
-    
     getProfile: builder.query({
       query: () => `/user.json`,
       transformResponse: (response) => {
@@ -17,9 +16,8 @@ export const profileApi = createApi({
           ...response[key],
         }));
       },
-    
     }),
   }),
 });
 
-export const {  useGetProfileQuery } = profileApi;
+export const { useGetProfileQuery } = profileApi;

@@ -1,11 +1,10 @@
-import React, { useRef, useEffect} from "react";
-import { Animated, Text, TouchableHighlight, View} from "react-native";
+import React, { useRef, useEffect } from "react";
+import { Animated, Text, TouchableHighlight, View } from "react-native";
 import { COLORS } from "../../utils/colors";
 import { styles } from "./style";
-import { Ionicons } from '@expo/vector-icons';
 
 const FadeInView = (props) => {
-  const fadeAnim = useRef(new Animated.Value(0)).current; 
+  const fadeAnim = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
     Animated.timing(fadeAnim, {
@@ -16,10 +15,10 @@ const FadeInView = (props) => {
   }, [fadeAnim]);
 
   return (
-    <Animated.View 
+    <Animated.View
       style={{
         ...props.style,
-        opacity: fadeAnim, 
+        opacity: fadeAnim,
       }}
     >
       {props.children}
@@ -28,7 +27,6 @@ const FadeInView = (props) => {
 };
 
 export default function StartPage({ navigation }) {
- 
   return (
     <View
       style={{
@@ -38,33 +36,24 @@ export default function StartPage({ navigation }) {
         backgroundColor: COLORS.black,
       }}
     >
-        <View>
+      <View>
         <View>
           <Text style={styles.text}> Boutique des Parfums </Text>
-          </View>
-       
+        </View>
       </View>
       <FadeInView
         style={{
           width: 250,
           height: 150,
-        
         }}
       >
-         <TouchableHighlight onPress={() => navigation.navigate("Brands")}>
-        <View style={styles.buttonEnter}>
-        
-          <Text 
-            style={styles.botonIngresar}
-          >
-           See our Brands
-          </Text>
-          {/* <Ionicons name="md-push-outline" size={24} color={COLORS.primary} /> */}
-        </View>
+        <TouchableHighlight onPress={() => navigation.navigate("Brands")}>
+          <View style={styles.buttonEnter}>
+            <Text style={styles.botonIngresar}>See our Brands</Text>
+            {/* <Ionicons name="md-push-outline" size={24} color={COLORS.primary} /> */}
+          </View>
         </TouchableHighlight>
-      
-       </FadeInView>
-    
+      </FadeInView>
     </View>
   );
 }

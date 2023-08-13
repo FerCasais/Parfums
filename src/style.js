@@ -6,7 +6,6 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: COLORS.background,
     marginTop: StatusBar.currentHeight,
-    
   },
 
   splashFonts: {
@@ -24,7 +23,7 @@ export const styles = StyleSheet.create({
     color: COLORS.white,
   },
   tabNavigator: {
-  flex: 1,
-  backgroundColor: 'red',
-},
+    flex: 1,
+    backgroundColor: "red",
+  },
 });

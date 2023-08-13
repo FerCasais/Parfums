@@ -12,7 +12,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { addToCart, deleteSelection } from "../../store/cart/cartSlice";
 import { useGetProductByIdQuery } from "../../store/products/apis";
 
-
 function ItemDetail({ navigation, route }) {
 
   const dispatch = useDispatch ()
