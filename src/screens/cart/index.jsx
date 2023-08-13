@@ -36,36 +36,36 @@ const Cart = ({navigation}) => {
 
   const totalItems = useSelector((state) => state.cart.quantity);
 
-  // const onCreateOrder = async () => {
-  //   const newOrder = {
-  //     id: Math.floor(Math.random() * 1000),
-  //     items: cart,
-  //     total,
-  //     user: {
-  //       id: 1,
-  //       name: 'John Doe',
-  //       address: '123 Street',
-  //       phone: '123456789',
-  //       email: 'johndoe@gmail.com',
-  //     },
-  //     payment: {
-  //       method: 'VISA',
-  //     },
-  //     delivery: {
-  //       method: 'UPS',
-  //       trackingNumber: Math.floor(Math.random() * 1000),
-  //     },
-  //     createAt: Date.now(),
-  //     finishedAt: '',
-  //   };
-  //   try {
-  //     await createOrder(newOrder);
-  //     dispatch(clearCart());
-  //     navigation.navigate('OrdersTab');
-  //   } catch (e) {
-  //     console.warn({ error, e });
-  //   }
-  // };
+  const onCreateOrder = async () => {
+    const newOrder = {
+      id: Math.floor(Math.random() * 1000),
+      items: cart,
+      total,
+      user: {
+        id: 1,
+        name: 'John Doe',
+        address: '123 Street',
+        phone: '123456789',
+        email: 'johndoe@gmail.com',
+      },
+      payment: {
+        method: 'VISA',
+      },
+      delivery: {
+        method: 'UPS',
+        trackingNumber: Math.floor(Math.random() * 1000),
+      },
+      createAt: Date.now(),
+      finishedAt: '',
+    };
+    try {
+      await createOrder(newOrder);
+      dispatch(clearCart());
+      navigation.navigate('OrdersTab');
+    } catch (e) {
+      console.warn({ error, e });
+    }
+  };
 
 
 
@@ -98,7 +98,7 @@ const Cart = ({navigation}) => {
         </View>
         <View style={styles.orderButton} >
         
-          <TouchableOpacity onPress={() => navigation.navigate("Register")} style={styles.orderTouch}>
+          <TouchableOpacity onPress={onCreateOrder} style={styles.orderTouch}>
             <Text style={styles.orderButtonText}>Confirmar compra</Text>
           </TouchableOpacity>
         </View>

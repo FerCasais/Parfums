@@ -8,9 +8,19 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { Provider } from "react-redux";
 import { store } from "./store";
+import { initDatabase } from "./utils/db";
 
 
 export default function App() {
+
+  React.useEffect(function () {
+    async function init() {
+      await initDatabase();
+    }
+    init();
+  }, []);
+
+
   const [fontsLoaded] = useFonts({
     "dancing-bold": require("../assets/fonts/DancingScript-Bold.ttf"),
     "dancing-script": require("../assets/fonts/DancingScript-SemiBold.ttf"),

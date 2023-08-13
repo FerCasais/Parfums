@@ -6,7 +6,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { COLORS } from "../utils/colors";
 import { useSelector } from "react-redux";
-import ProfileNavigator from "./profile";
+import ProfileNavigator from "./profile1";
 
 
 

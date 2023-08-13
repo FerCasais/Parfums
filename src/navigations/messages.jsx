@@ -1,16 +1,17 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Register from "../screens/register";
+
+import Messages from "../screens/messages";
+import { COLORS } from "../utils/colors";
 
 const Stack = createNativeStackNavigator();
 
-const RegisterNavigator = () => {
+const MessagesNavigator = () => {
   return (
-    <Stack.Navigator initialRouteName="Register">
+    <Stack.Navigator initialRouteName="Messages">
       <Stack.Screen
-        name="Register"
-        component={Register}
+        name="Messages"
+        component={Messages}
         options={{
-       
           headerTitleAlign: "center",
           headerStyle: {
             backgroundColor: COLORS.primary,
@@ -27,4 +28,4 @@ const RegisterNavigator = () => {
   );
 };
 
-export default RegisterNavigator;
+export default MessagesNavigator;
