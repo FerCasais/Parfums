@@ -1,10 +1,11 @@
 import firebase from "firebase/compat/app";
 import { getDatabase } from "firebase/database";
+import { URL_BASE_FIREBASE_REALTIME_DATABASE, FIREBASE_API_KEY } from "./contants/firebase";
 
 const firebaseConfig =  {
-    apiKey: "AIzaSyCdPRz-AHlt8_T_SXKExXrzJjSJlmaG2Wk",
+    apiKey: FIREBASE_API_KEY,
     authDomain: "parfumsshop-67e34.firebaseapp.com",
-    databaseURL: "https://parfumsshop-67e34-default-rtdb.firebaseio.com",
+    databaseURL: URL_BASE_FIREBASE_REALTIME_DATABASE,
     projectId: "parfumsshop-67e34",
     storageBucket: "parfumsshop-67e34.appspot.com",
     messagingSenderId: "311345332755",

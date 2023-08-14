@@ -1,3 +1,4 @@
+import { StyleSheet, Text } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Categories } from "../screens";
 import StartPage from "../screens/startPage";
@@ -6,10 +7,15 @@ import { COLORS } from "../utils/colors";
 import ItemDetail from "../screens/itemsDetail";
 import Cart from "../screens/cart";
 import Messages from "../screens/messages";
+import { useDispatch } from 'react-redux';
+import { logout } from '../store/auth/auth.slice';
+import { TouchableOpacity } from "react-native";
+import { Ionicons } from '@expo/vector-icons';
 
 const Stack = createNativeStackNavigator();
 
 function ShopNavigator() {
+  const dispatch = useDispatch();
   return (
     <Stack.Navigator initialRouteName="StartPage">
       <Stack.Screen
@@ -18,6 +24,7 @@ function ShopNavigator() {
         options={{
           headerTitleAlign: "center",
           headerShown: false,
+         
         }}
       />
       <Stack.Screen
@@ -35,6 +42,7 @@ function ShopNavigator() {
             color: COLORS.white,
             fontFamily: "dancing-bold",
           },
+         
         }}
       />
       <Stack.Screen
@@ -86,6 +94,7 @@ function ShopNavigator() {
             color: COLORS.secodary,
             fontFamily: "castaro",
           },
+                   
         })}
       />
 
@@ -104,6 +113,11 @@ function ShopNavigator() {
             color: COLORS.secodary,
             fontFamily: "castaro",
           },
+          headerLeft: () => (
+            <TouchableOpacity style={styles.icon} onPress={() => dispatch(logout())}>
+              <Ionicons name="ios-log-out-outline" size={24} color={COLORS.white} /><Text style={styles.logout}>Log Out</Text>
+            </TouchableOpacity>
+          ),
         })}
       />
     </Stack.Navigator>
@@ -111,3 +125,13 @@ function ShopNavigator() {
 }
 
 export default ShopNavigator;
+
+const styles = StyleSheet.create({
+
+  icon: {
+    marginRight: Platform.OS === 'android' ? 15 : 0,
+  },
+  logout: {
+    color: COLORS.white,
+  }
+});

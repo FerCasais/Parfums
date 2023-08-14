@@ -1,8 +1,8 @@
 import React from "react";
-import { useEffect, useState } from "react";
-import { View, Text, TextInput } from "react-native";
-import { TouchableOpacity, TouchableHighlight } from "react-native";
+import { useState, useEffect } from "react";
+import { TouchableOpacity, Image, TouchableHighlight, Keyboard,  TouchableWithoutFeedback, View, Text, TextInput } from "react-native";
 import { useDispatch } from "react-redux";
+import { requestMediaLibraryPermissionsAsync } from "expo-image-picker";
 
 import { styles } from "./styles";
 import { COLORS } from "../../utils/colors";
@@ -10,11 +10,10 @@ import { useSignInMutation, useSignUpMutation } from "../../store/auth/api";
 import { setUser } from "../../store/auth/auth.slice";
 
 import * as ImagePicker from "expo-image-picker";
-import { Image} from "react-native";
 import { db } from "../../confij";
 import { ref, push } from "firebase/database";
 
-const Auth = ({navigation}) => {
+const Auth = ({ navigation }) => {
   const dispatch = useDispatch();
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState("");
@@ -23,6 +22,7 @@ const Auth = ({navigation}) => {
   const headerTitle = isLogin ? "Login" : "Register";
   const buttonTitle = isLogin ? "Login" : "Register";
   const messageText = isLogin ? "Need an account?" : "Already have an account?";
+
 
   const [name1, setName1] = useState("");
   const [email1, setEmail1] = useState("");
@@ -37,7 +37,7 @@ const Auth = ({navigation}) => {
         await signIn({ email, password });
       } else {
         await signUp({ email, password });
-        console.warn(email, password);
+
         push(ref(db, "user/"), {
           name1: name,
           email1: email,
@@ -59,28 +59,32 @@ const Auth = ({navigation}) => {
     }
   }, [data]);
 
-  ///////
+  ///
 
   const [image, setImage] = useState(null);
 
-  const pickImage = async () => {
-    // No permissions request is necessary for launching the image library
-    let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.All,
-      allowsEditing: true,
-      aspect: [4, 3],
-      quality: 1,
-    });
+ const pickImage = async () => {
 
+  let result = await ImagePicker.launchImageLibraryAsync({
+    allowsEditing: true,
+    quality: 1,
+    aspect: [4, 3],
+  });
+    
+  if (!result.canceled) {
+    setImage(result.assets[0].uri);
     console.log(result);
+ 
+  } else {
+    alert('You did not select any image.');
+  }
+};
 
-    if (!result.canceled) {
-      setImage(result.assets[0].uri);
-    }
-  };
 
+  
   return (
     <>
+    
       <View style={styles.container}>
         <View style={styles.content}>
           <Text style={styles.header}>{headerTitle}</Text>
@@ -93,6 +97,7 @@ const Auth = ({navigation}) => {
             autoCorrect={false}
             onChangeText={(text) => setEmail(text)}
             value={email}
+           
           />
           <Text style={styles.label}>Password</Text>
           <TextInput
@@ -104,6 +109,7 @@ const Auth = ({navigation}) => {
             secureTextEntry
             onChangeText={(text) => setPassword(text)}
             value={password}
+          
           />
           <TextInput
             style={styles.input}
@@ -113,6 +119,7 @@ const Auth = ({navigation}) => {
             autoCorrect={false}
             onChangeText={(text) => setName(text)}
             value={name}
+          
           />
           <View style={styles.linkContainer}>
             <TouchableOpacity
@@ -157,11 +164,12 @@ const Auth = ({navigation}) => {
           {image && (
             <Image
               source={{ uri: image }}
-              style={{ width: 200, height: 200 }}
+              style={{ width: 160, height: 160 }}
             />
           )}
         </View>
       </View>
+    
     </>
   );
 };
