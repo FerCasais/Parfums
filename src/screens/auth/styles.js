@@ -9,11 +9,12 @@ export const styles = StyleSheet.create({
     backgroundColor: COLORS.background,
   },
   content: {
-    width: "80%",
+ 
+    width: "60%",
     maxWidth: 400,
     padding: 15,
     margin: 15,
-    backgroundColor: COLORS.white,
+    backgroundColor: '#000000c0',
     borderWidth: 1,
     borderColor: COLORS.primary,
     shadowColor: "#000",
@@ -41,6 +42,7 @@ export const styles = StyleSheet.create({
     borderBottomColor: COLORS.primary,
     borderBottomWidth: 1,
     width: "90%",
+   
 
     marginBottom: 5,
   },
@@ -107,5 +109,21 @@ export const styles = StyleSheet.create({
     borderBottomWidth: 1,
     width: "90%",
     marginBottom: 5,
+    color: COLORS.white,
+  },
+  image: {
+    flex: 1,
+    justifyContent: 'center',
+    width: 400,
+    height: 750,
+  },
+  textBanner: {
+    color: COLORS.secodary,
+    fontSize: 22,
+    lineHeight: 44,
+ fontFamily: "castaro",
+    textAlign: 'center',
+    backgroundColor: '#000000c0',
+  
   },
 });

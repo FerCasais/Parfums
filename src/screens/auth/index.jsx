@@ -1,6 +1,16 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { TouchableOpacity, Image, TouchableHighlight, Keyboard,  TouchableWithoutFeedback, View, Text, TextInput } from "react-native";
+import {
+  TouchableOpacity,
+  Image,
+  TouchableHighlight,
+  Button,
+  View,
+  Text,
+  TextInput,
+  ImageBackground,
+} from "react-native";
+
 import { useDispatch } from "react-redux";
 import { requestMediaLibraryPermissionsAsync } from "expo-image-picker";
 
@@ -13,6 +23,10 @@ import * as ImagePicker from "expo-image-picker";
 import { db } from "../../confij";
 import { ref, push } from "firebase/database";
 
+import { validationSchema } from "../../validations/userValidation";
+import * as yup from "yup";
+import { Formik } from "formik";
+
 const Auth = ({ navigation }) => {
   const dispatch = useDispatch();
   const [isLogin, setIsLogin] = useState(true);
@@ -23,15 +37,20 @@ const Auth = ({ navigation }) => {
   const buttonTitle = isLogin ? "Login" : "Register";
   const messageText = isLogin ? "Need an account?" : "Already have an account?";
 
-
   const [name1, setName1] = useState("");
   const [email1, setEmail1] = useState("");
+
+  const [submitting, setSubmitting] = useState(false);
 
   const [signIn, { data }] = useSignInMutation();
 
   const [signUp] = useSignUpMutation();
 
-  const onHandlerAuth = async () => {
+  const handleSubmit = async (values) => {
+    setName(values.name);
+    setEmail(values.email);
+    setPassword(values.password);
+
     try {
       if (isLogin) {
         await signIn({ email, password });
@@ -43,9 +62,6 @@ const Auth = ({ navigation }) => {
           email1: email,
           image: image,
         });
-        setName1("");
-        setEmail1("");
-        setImage("");
       }
     } catch (error) {
       console.error(error);
@@ -63,64 +79,92 @@ const Auth = ({ navigation }) => {
 
   const [image, setImage] = useState(null);
 
- const pickImage = async () => {
+  const pickImage = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      allowsEditing: true,
+      quality: 1,
+      aspect: [4, 3],
+    });
 
-  let result = await ImagePicker.launchImageLibraryAsync({
-    allowsEditing: true,
-    quality: 1,
-    aspect: [4, 3],
-  });
-    
-  if (!result.canceled) {
-    setImage(result.assets[0].uri);
-    console.log(result);
- 
-  } else {
-    alert('You did not select any image.');
-  }
-};
+    if (!result.canceled) {
+      setImage(result.assets[0].uri);
+      console.log(result);
+    } else {
+      alert("You did not select any image.");
+    }
+  };
 
+  const imageBack = {
+    uri: "https://media.fashionnetwork.com/cdn-cgi/image/fit=contain,width=1000,height=1000/m/0dcf/425a/13a9/dc0d/f5f3/f108/b986/85ee/eff1/70bf/70bf.jpg",
+  };
 
-  
   return (
     <>
-    
       <View style={styles.container}>
+        <ImageBackground
+          source={imageBack}
+          resizeMode="cover"
+          style={styles.image}
+        >
+          <Text style={styles.textBanner}> Boutique da Parfums</Text>
+        </ImageBackground>
+
         <View style={styles.content}>
           <Text style={styles.header}>{headerTitle}</Text>
-          <Text style={styles.label}>Email</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="email@domain.com"
-            placeholderTextColor={COLORS.gray}
-            autoCapitalize="none"
-            autoCorrect={false}
-            onChangeText={(text) => setEmail(text)}
-            value={email}
-           
-          />
-          <Text style={styles.label}>Password</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="*********"
-            placeholderTextColor={COLORS.gray}
-            autoCapitalize="none"
-            autoCorrect={false}
-            secureTextEntry
-            onChangeText={(text) => setPassword(text)}
-            value={password}
-          
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="name"
-            placeholderTextColor={COLORS.gray}
-            autoCapitalize="none"
-            autoCorrect={false}
-            onChangeText={(text) => setName(text)}
-            value={name}
-          
-          />
+          {/* <Text style={styles.label}>Email</Text> */}
+          <View>
+            <Formik
+              initialValues={{ name: "", email: "", password: "", image: "" }}
+              onSubmit={handleSubmit}
+              validationSchema={validationSchema}
+            >
+              {({ handleChange, handleSubmit, values, errors, isValid }) => (
+                <View>
+                  <TextInput
+                    onChangeText={handleChange("name")}
+                    value={values.name}
+                    placeholder="Nombre"
+                    style={styles.input}
+                  />
+                  {errors.name && (
+                    <Text style={styles.errorText}>{errors.name}</Text>
+                  )}
+
+                  <TextInput
+                    onChangeText={handleChange("email")}
+                    //  onChangeText={(text) => setEmail(text)}
+                    value={values.email}
+                    placeholder="Email"
+                    style={styles.input}
+                  />
+                  {errors.email && (
+                    <Text style={styles.errorText}>{errors.email}</Text>
+                  )}
+
+                  <TextInput
+                    onChangeText={handleChange("password")}
+                    //  onChangeText={(text) => setPassword(text)}
+                    value={values.password}
+                    placeholder="Contraseña"
+                    secureTextEntry
+                    style={styles.input}
+                  />
+                  {errors.password && (
+                    <Text style={styles.errorText}>{errors.password}</Text>
+                  )}
+                  <View style={styles.buttonContainer}>
+                    <TouchableHighlight
+                      style={styles.button}
+                      onPress={handleSubmit}
+                      disabled={!isValid || submitting}
+                    >
+                      <Text style={styles.text}>Submit</Text>
+                    </TouchableHighlight>
+                  </View>
+                </View>
+              )}
+            </Formik>
+          </View>
           <View style={styles.linkContainer}>
             <TouchableOpacity
               style={styles.link}
@@ -152,12 +196,9 @@ const Auth = ({ navigation }) => {
               </TouchableHighlight>
             </View>
           </View>
-          <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.button} onPress={onHandlerAuth}>
-              <Text style={styles.buttonText}>{buttonTitle}</Text>
-            </TouchableOpacity>
-          </View>
+          <View style={styles.buttonContainer}></View>
         </View>
+
         <View
           style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
         >
@@ -169,7 +210,6 @@ const Auth = ({ navigation }) => {
           )}
         </View>
       </View>
-    
     </>
   );
 };

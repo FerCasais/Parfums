@@ -94,6 +94,9 @@ function ShopNavigator() {
             color: COLORS.secodary,
             fontFamily: "castaro",
           },
+     
+     
+        
                    
         })}
       />
