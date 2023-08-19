@@ -1,6 +1,5 @@
-import { View, Text, TouchableHighlight } from "react-native";
+import { View, Text, TouchableHighlight, FlatList } from "react-native";
 import { styles } from "./style";
-import { FlatList } from 'react-native';
 import { OrderItem } from '../../components';
 import { useGetOrdersQuery } from '../../store/orders/apis';
 

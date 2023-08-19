@@ -12,10 +12,7 @@ import {
 } from "react-native";
 
 import { useDispatch } from "react-redux";
-import { requestMediaLibraryPermissionsAsync } from "expo-image-picker";
-
 import { styles } from "./styles";
-import { COLORS } from "../../utils/colors";
 import { useSignInMutation, useSignUpMutation } from "../../store/auth/api";
 import { setUser } from "../../store/auth/auth.slice";
 
@@ -24,7 +21,6 @@ import { db } from "../../confij";
 import { ref, push } from "firebase/database";
 
 import { validationSchema } from "../../validations/userValidation";
-import * as yup from "yup";
 import { Formik } from "formik";
 
 const Auth = ({ navigation }) => {
@@ -106,12 +102,12 @@ const Auth = ({ navigation }) => {
           resizeMode="cover"
           style={styles.image}
         >
-          <Text style={styles.textBanner}> Boutique da Parfums</Text>
+          <Text style={styles.textBanner}> Boutique des Parfums</Text>
         </ImageBackground>
 
         <View style={styles.content}>
           <Text style={styles.header}>{headerTitle}</Text>
-          {/* <Text style={styles.label}>Email</Text> */}
+        
           <View>
             <Formik
               initialValues={{ name: "", email: "", password: "", image: "" }}
@@ -132,7 +128,7 @@ const Auth = ({ navigation }) => {
 
                   <TextInput
                     onChangeText={handleChange("email")}
-                    //  onChangeText={(text) => setEmail(text)}
+                  
                     value={values.email}
                     placeholder="Email"
                     style={styles.input}
@@ -143,7 +139,7 @@ const Auth = ({ navigation }) => {
 
                   <TextInput
                     onChangeText={handleChange("password")}
-                    //  onChangeText={(text) => setPassword(text)}
+                  
                     value={values.password}
                     placeholder="Contraseña"
                     secureTextEntry
@@ -185,7 +181,7 @@ const Auth = ({ navigation }) => {
                 <Image
                   style={styles.tinyLogo}
                   source={{
-                    uri: "https://hips.hearstapps.com/hmg-prod/images/ryan-gosling-attends-the-barbie-european-premiere-at-news-photo-1691225102.jpg?crop=1xw:0.37238xh;center,top&resize=1200:*",
+                    uri: "https://media.gq.com.mx/photos/64a86e064f935b27f4b8a849/16:9/w_2560%2Cc_limit/Ryan_Gosling_Barbie-1521056899.jpg",
                   }}
                 />
               </View>

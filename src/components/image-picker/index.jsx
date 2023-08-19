@@ -2,11 +2,10 @@ import { Ionicons } from '@expo/vector-icons';
 import {
   requestMediaLibraryPermissionsAsync,
   launchImageLibraryAsync,
-  launchCameraAsync,
-  requestCameraPermissionsAsync,
+
 } from 'expo-image-picker';
 import { useState } from 'react';
-import { TouchableOpacity, View, Text, Image, Alert } from 'react-native';
+import { TouchableOpacity, View, Image, Alert } from 'react-native';
 
 import { styles } from './styles';
 import { COLORS } from '../../utils/colors';

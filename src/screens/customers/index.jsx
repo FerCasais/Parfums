@@ -1,9 +1,8 @@
-import { View, Text } from "react-native";
+import { View, Text, FlatList, Image } from "react-native";
 import { styles } from "./styles";
-import { FlatList, Image } from "react-native";
 import { useGetProfileQuery } from "../../store/profiles/apis";
 
-const Profile = () => {
+const ProfileData = () => {
   const { data, error, isLoading } = useGetProfileQuery();
 
   const renderItem = ({ item }) => (
@@ -31,4 +30,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default ProfileData;

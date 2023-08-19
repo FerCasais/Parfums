@@ -6,10 +6,9 @@ import {
   StatusBar,
 } from "react-native";
 import { styles } from "./style";
-import DETAILS from "../../contants/data/details.json";
 import { Card, Button, Title, Paragraph } from "react-native-paper";
 import { useSelector, useDispatch } from "react-redux";
-import { addToCart, deleteSelection } from "../../store/cart/cartSlice";
+import { addToCart } from "../../store/cart/cartSlice";
 import { useGetProductByIdQuery } from "../../store/products/apis";
 
 function ItemDetail({ navigation, route }) {

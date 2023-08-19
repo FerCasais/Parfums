@@ -1,5 +1,5 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Profile from "../screens/profile";
+import ProfileData from "../screens/customers";
 import { COLORS } from "../utils/colors";
 import { TouchableOpacity, Text, StyleSheet} from "react-native";
 import { Ionicons } from '@expo/vector-icons';
@@ -14,7 +14,7 @@ const ProfileNavigator = () => {
     <Stack.Navigator initialRouteName="Profile">
       <Stack.Screen
         name="Profile"
-        component={Profile}
+        component={ProfileData}
         options={{
        
           headerTitleAlign: "center",

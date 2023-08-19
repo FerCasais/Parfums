@@ -11,12 +11,7 @@ import { store } from "./store";
 
 
 export default function App() {
-  React.useEffect(function () {
-    async function init() {
-      await initDatabase();
-    }
-    init();
-  }, []);
+ 
 
   const [fontsLoaded] = useFonts({
     "dancing-bold": require("../assets/fonts/DancingScript-Bold.ttf"),

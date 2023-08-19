@@ -78,9 +78,9 @@ const TabsNavigator = () => {
           fontSize: 11,
         },
       }}/>
-       <Tab.Screen  name="Profile" component={ProfileNavigator}
+       <Tab.Screen  name="Profiles" component={ProfileNavigator}
        options={{
-        tabBarLabel: 'Profile',
+        tabBarLabel: 'Profiles',
         tabBarIcon: ({ focused, color }) => {
           return (
             <Ionicons name={focused? "person-add-sharp" : "person-add-outline"} size={28} color={color} />

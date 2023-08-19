@@ -1,4 +1,4 @@
-import { StyleSheet, Text } from "react-native";
+import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Categories } from "../screens";
 import StartPage from "../screens/startPage";
@@ -9,7 +9,6 @@ import Cart from "../screens/cart";
 import Messages from "../screens/messages";
 import { useDispatch } from 'react-redux';
 import { logout } from '../store/auth/auth.slice';
-import { TouchableOpacity } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
 
 const Stack = createNativeStackNavigator();

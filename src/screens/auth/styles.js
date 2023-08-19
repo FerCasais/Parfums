@@ -9,8 +9,7 @@ export const styles = StyleSheet.create({
     backgroundColor: COLORS.background,
   },
   content: {
- 
-    width: "60%",
+     width: "60%",
     maxWidth: 400,
     padding: 15,
     margin: 15,
