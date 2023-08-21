@@ -17,5 +17,14 @@ export const styles = StyleSheet.create({
       fontFamily: 'castaro',
       backgroundColor: COLORS.background2,
     },
-   
+    imageBackgroundTablet: {
+      width: '100%',
+      height: 250,
+      justifyContent: 'flex-end',
+    },
+    categoryNameTablet: {
+      fontSize: 35,
+      padding: 20,
+      textShadowColor: 'rgba(0,0, 0, 0.75)'
+    }
 });

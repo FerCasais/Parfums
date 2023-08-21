@@ -14,6 +14,9 @@ import { Card, Title, Paragraph } from "react-native-paper";
 import { useSelector } from "react-redux";
 import { useGetProductsByCategoryQuery } from "../../store/products/apis";
 
+import useOrientation from '../../hooks/useOrientation';
+import { ORIENTATION } from "../../contants/orientation";
+
 function Products({ navigation, route }) {
   const productsRedux = useSelector((state) => state.products.data);
 
@@ -32,7 +35,7 @@ function Products({ navigation, route }) {
   const onSelectItem = ({ productId, name }) => {
     navigation.navigate("ItemDetail", { productId, name });
   };
-
+  const orientation = useOrientation();
   return (
     <>
       <SafeAreaView style={styles.container}>
@@ -51,6 +54,7 @@ function Products({ navigation, route }) {
                 onPress={(id) =>
                   onSelectItem({ productId: item.id, name: item.name })
                 }
+                style={orientation === ORIENTATION.LANDSCAPE ? styles.categoryItemLandscape : {}}
               >
                 <View>
                   <Card.Content style={styles.cardView}>
