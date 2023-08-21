@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
     maxWidth: 400,
     padding: 15,
     margin: 15,
-    backgroundColor: '#000000c0',
+    backgroundColor: '#f5ebe0',
     borderWidth: 1,
     borderColor: COLORS.primary,
     shadowColor: "#000",
@@ -36,15 +36,7 @@ export const styles = StyleSheet.create({
     fontSize: 14,
     color: COLORS.text,
   },
-  input: {
-    height: 45,
-    borderBottomColor: COLORS.primary,
-    borderBottomWidth: 1,
-    width: "90%",
-   
 
-    marginBottom: 5,
-  },
   linkContainer: {
     justifyContent: "center",
     alignItems: "center",
@@ -108,7 +100,8 @@ export const styles = StyleSheet.create({
     borderBottomWidth: 1,
     width: "90%",
     marginBottom: 5,
-    color: COLORS.white,
+    color: COLORS.secodary,
+    
   },
   image: {
     flex: 1,
@@ -125,4 +118,7 @@ export const styles = StyleSheet.create({
     backgroundColor: '#000000c0',
   
   },
+  errorText: {
+    color: 'red',
+  }
 });

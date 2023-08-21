@@ -10,6 +10,7 @@ export const authApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: FIREBASE_AUTH_BASE_URL }),
   tagTypes: ["Auth"],
   endpoints: (builder) => ({
+    
     signIn: builder.mutation({
       query: (credentials) => ({
         url: FIREBASE_AUTH_SIGN_IN_API_URL,
@@ -17,6 +18,7 @@ export const authApi = createApi({
         body: credentials,
       }),
     }),
+    
     signUp: builder.mutation({
       query: (credentials) => ({
         url: FIREBAS_AUTH_SIGN_UP_API_URL,
@@ -24,6 +26,7 @@ export const authApi = createApi({
         body: credentials,
       }),
     }),
+
   }),
 });
 
