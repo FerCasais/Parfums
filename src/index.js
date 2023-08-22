@@ -1,11 +1,9 @@
+import * as React from "react";
 import { View, SafeAreaView, ActivityIndicator } from "react-native";
 import { styles } from "./style";
 import { useFonts } from "expo-font";
 import RouteNavigation from "./navigations";
-import * as React from "react";
-
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-
 import { Provider } from "react-redux";
 import { store } from "./store";
 

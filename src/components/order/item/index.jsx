@@ -1,5 +1,4 @@
 import { TouchableOpacity, Text, View } from 'react-native';
-
 import { styles } from './style';
 
 const formatDate = (time) => {

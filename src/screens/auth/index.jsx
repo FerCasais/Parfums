@@ -1,10 +1,8 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React,  { useState }  from "react";
 import {
   TouchableOpacity,
   Image,
   TouchableHighlight,
-  Button,
   View,
   Text,
   TextInput,
@@ -15,14 +13,12 @@ import { useDispatch } from "react-redux";
 import { styles } from "./styles";
 import { useSignInMutation, useSignUpMutation } from "../../store/auth/api";
 import { setUser } from "../../store/auth/auth.slice";
-
 import * as ImagePicker from "expo-image-picker";
 import { db } from "../../confij";
 import { ref, push } from "firebase/database";
-
 import { validationSchema } from "../../validations/userValidation";
 import { Formik } from "formik";
-import { isLoading } from "expo-font";
+
 
 
 const Auth = ({ navigation }) => {
