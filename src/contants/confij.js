@@ -1,6 +1,6 @@
 import firebase from "firebase/compat/app";
 import { getDatabase } from "firebase/database";
-import { URL_BASE_FIREBASE_REALTIME_DATABASE, FIREBASE_API_KEY } from "./contants/firebase";
+import { URL_BASE_FIREBASE_REALTIME_DATABASE, FIREBASE_API_KEY } from "./firebase";
 
 const firebaseConfig =  {
     apiKey: FIREBASE_API_KEY,
