@@ -14,7 +14,7 @@ import { styles } from "./styles";
 import { useSignInMutation, useSignUpMutation } from "../../store/auth/api";
 import { setUser } from "../../store/auth/auth.slice";
 import * as ImagePicker from "expo-image-picker";
-import { db} from '../../contants/confij'
+import { db } from "../../contants/confij";
 import { ref, push } from "firebase/database";
 import { validationSchema } from "../../validations/userValidation";
 import { Formik } from "formik";
@@ -22,6 +22,7 @@ import { Formik } from "formik";
 
 
 const Auth = ({ navigation }) => {
+
   const dispatch = useDispatch();
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState("");
