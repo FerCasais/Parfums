@@ -30,7 +30,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.parfums.parfums"git 
+      "package": "com.parfums.parfums"
     },
     "web": {
       "favicon": "./assets/favicon.png"
