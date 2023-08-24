@@ -104,7 +104,7 @@ function ShopNavigator() {
         name="Messages"
         component={Messages}
         options={({ navigation, route }) => ({
-          headerTitle: " messages",
+          headerTitle: "Messages",
           headerTitleAlign: "center",
           headerStyle: {
             backgroundColor: COLORS.background2,
