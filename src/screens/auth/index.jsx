@@ -37,12 +37,12 @@ const Auth = ({ navigation }) => {
   const [loginIn, setLoginIn] = useState()
 
 
- dispatch(setUser(data));
+
 
   
   const handleSubmit = async (values) => {
 
-    
+      dispatch(setUser(data));
 
     try {
       if(isLogin) {
@@ -50,6 +50,7 @@ const Auth = ({ navigation }) => {
        
        
       } else {
+      
           await signUp({ email: values.email, password: values.password });
           push(ref(db, "user/"), {
             name: values.name,
